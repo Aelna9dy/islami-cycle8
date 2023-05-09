@@ -65,10 +65,10 @@ class _RadioTabState extends State<RadioTab>
               child: IconButton(
                 onPressed: () {},
                 icon: ImageIcon(
-                  AssetImage(
+                  const AssetImage(
                     "assets/images/Ic_metro_next.png",
                   ),
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).accentColor,
                 ),
               ),
             ),
@@ -81,7 +81,7 @@ class _RadioTabState extends State<RadioTab>
               },
               child: AnimatedIcon(
                 icon: AnimatedIcons.play_pause,
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).accentColor,
                 size: 50,
                 progress: _animationController,
               ),
@@ -92,10 +92,10 @@ class _RadioTabState extends State<RadioTab>
             IconButton(
               onPressed: () {},
               icon: ImageIcon(
-                AssetImage(
+                const AssetImage(
                   "assets/images/Ic_metro_next.png",
                 ),
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).accentColor,
               ),
             ),
           ],
@@ -104,14 +104,3 @@ class _RadioTabState extends State<RadioTab>
     );
   }
 }
-/*IconButton(
-              onPressed: (){},
-              icon: ImageIcon(
-                  AssetImage(
-                      "assets/images/Icon awesome-play.png",
-                  ),
-                color: Theme.of(context).primaryColor,
-              ),
-            ),
-
- */

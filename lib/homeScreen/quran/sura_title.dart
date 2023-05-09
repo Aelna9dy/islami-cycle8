@@ -6,7 +6,6 @@ import 'sura_detials_screen_args.dart';
 class SuraTitleWidget extends StatelessWidget {
   String title;
   int index;
-
   SuraTitleWidget({required this.index, required this.title});
 
   @override

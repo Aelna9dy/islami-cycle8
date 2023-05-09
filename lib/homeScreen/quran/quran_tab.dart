@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:islami/homeScreen/quran/sura_title.dart';
 
-class QuranTab extends StatelessWidget {
+class QuranTab extends StatefulWidget {
+  @override
+  State<QuranTab> createState() => _QuranTabState();
+}
+
+class _QuranTabState extends State<QuranTab> {
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
+
     return Container(
       child: Column(
         children: [
@@ -11,8 +18,8 @@ class QuranTab extends StatelessWidget {
             flex: 2,
             child: Image.asset("assets/images/Screenshot (1).png"),
           ),
-          const Divider(
-            color: Color(0xFFB7935F),
+          Divider(
+            color: theme.accentColor,
             thickness: 2,
           ),
           const Text(
@@ -22,8 +29,8 @@ class QuranTab extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const Divider(
-            color: Color(0xFFB7935F),
+          Divider(
+            color: theme.accentColor,
             thickness: 2,
           ),
           Expanded(
@@ -33,10 +40,10 @@ class QuranTab extends StatelessWidget {
                 title: names[index],
                 index: index,
               ),
-              separatorBuilder: (context, index) => const Padding(
+              separatorBuilder: (context, index) => Padding(
                 padding: EdgeInsets.symmetric(horizontal: 80.0),
                 child: Divider(
-                  color: Color(0xFFB7935F),
+                  color: theme.accentColor,
                   thickness: 1,
                 ),
               ),

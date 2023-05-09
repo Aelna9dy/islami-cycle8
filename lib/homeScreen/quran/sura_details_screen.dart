@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/homeScreen/provider/settings_provider.dart';
 import 'package:islami/homeScreen/quran/sura_detials_screen_args.dart';
 import 'package:islami/homeScreen/quran/verses_widget.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String routName = "sura-details";
@@ -15,6 +17,8 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var settingsProvider = Provider.of<SettingsProvider>(context);
+
     SuraDetailsScreenArs args =
         (ModalRoute.of(context)?.settings.arguments) as SuraDetailsScreenArs;
 
@@ -23,7 +27,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-        image: AssetImage("assets/images/main_background.png"),
+        image: AssetImage(settingsProvider.getMainBackground()),
         fit: BoxFit.fill,
       )),
       child: Scaffold(
@@ -31,29 +35,26 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
         appBar: AppBar(
           title: Text(
             "Islami",
-            style: TextStyle(
-              color: Colors.black,
-            ),
           ),
           centerTitle: true,
         ),
         body: verses.isEmpty
             ? Center(
-                child: CircularProgressIndicator(
-                  color: Theme.of(context).primaryColor,
-                ),
-              )
+          child: CircularProgressIndicator(
+            color: Theme.of(context).primaryColor,
+          ),
+        )
             : Card(
-                margin:
-                    const EdgeInsets.symmetric(vertical: 65, horizontal: 30),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25)),
-                child: ListView.builder(
-                  itemBuilder: (context, index) =>
-                      VersesWidget(verses[index], index + 1),
-                  itemCount: verses.length,
-                ),
-              ),
+          margin:
+          const EdgeInsets.symmetric(vertical: 65, horizontal: 30),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25)),
+          child: ListView.builder(
+            itemBuilder: (context, index) =>
+                VersesWidget(verses[index], index + 1),
+            itemCount: verses.length,
+          ),
+        ),
       ),
     );
   }
